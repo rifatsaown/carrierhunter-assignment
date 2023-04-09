@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-primary-focus px-16">
+      <div className="navbar bg-primary-focus text-black px-16">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,7 +56,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-outline ">Start Appling</a>
+          <a className="btn btn-outline text-black ">Start Appling</a>
         </div>
       </div>
     </>
