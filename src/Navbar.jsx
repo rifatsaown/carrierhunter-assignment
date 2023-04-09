@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-primary-focus text-black px-16">
+      <div className="navbar bg-primary-focus text-black lg:px-16">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,22 +28,41 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <NavLink to="/Statistics">Statistics</NavLink>
+                <NavLink className={"text-white"} to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className={"text-white"} to="/Statistics">
+                  Statistics
+                </NavLink>
               </li>
               <li tabIndex={0}>
-                <NavLink to="applied-jobs" className="justify-between">
+                <NavLink
+                  className={"text-white justify-between"}
+                  to="applied-jobs"
+                >
                   Applied Jobs
                 </NavLink>
               </li>
               <li>
-                <NavLink to="blog">Blog</NavLink>
+                <NavLink className={"text-white"} to="blog">
+                  Blog
+                </NavLink>
               </li>
             </ul>
           </div>
-          <Link to='/' className="btn btn-ghost normal-case text-xl">Career Hunter</Link>
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            Career Hunter
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">
+            <li>
+              <NavLink to="/">
+                Home
+              </NavLink>
+            </li>
             <li>
               <NavLink to="/Statistics">Statistics</NavLink>
             </li>
@@ -56,7 +75,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-outline text-black ">Start Appling</a>
+          <a className="btn btn-outline text-black sm:visible invisible ">
+            Start Appling
+          </a>
         </div>
       </div>
     </>
