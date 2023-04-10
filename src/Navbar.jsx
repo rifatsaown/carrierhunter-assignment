@@ -75,7 +75,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-outline text-black sm:visible invisible ">
+          <a href="#jobs" className="btn btn-outline text-black sm:visible invisible ">
             Start Appling
           </a>
         </div>

@@ -17,7 +17,7 @@ const Hero = () => {
               you need. Its your future. Come find it. Manage all your job
               application from start to finish.
             </p>
-            <button className="btn btn-secondary">Get Started</button>
+            <a href="#jobs"  className="btn btn-secondary">Get Started</a>
           </div>
         </div>
       </div>
