@@ -6,13 +6,13 @@ const Category = () => {
     <div>
       <div className="text-center mt-32 mb-8">
         <h1 className="text-4xl font-bold mb-3"> Job Category List </h1>
-        <p>
+        <p className="mx-4">
           Explore thousands of job opportunities with all the information you
           need. Its your future
         </p>
       </div>
-      <div className="flex justify-evenly items-center">
-        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center">
+      <div className="flex justify-evenly items-center flex-wrap">
+        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center m-5 lg:m-0">
           <div>
             <div className="text-3xl text-white bg-primary-focus w-fit p-1 rounded-lg mb-2">
               <MdAccountTree />
@@ -21,7 +21,7 @@ const Category = () => {
             <p>300 Jobs Available</p>
           </div>
         </div>
-        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center">
+        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center m-5 lg:m-0">
           <div>
             <div className="text-3xl text-white bg-primary-focus w-fit p-1 rounded-lg mb-2">
               <TbBulb />
@@ -30,7 +30,7 @@ const Category = () => {
             <p>100+ Jobs Available</p>
           </div>
         </div>
-        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center">
+        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center m-5 lg:m-0">
           <div>
             <div className="text-3xl text-white bg-primary-focus w-fit p-1 rounded-lg mb-2">
               <TbSocial />
@@ -39,7 +39,7 @@ const Category = () => {
             <p>150 Jobs Available</p>
           </div>
         </div>
-        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center">
+        <div className=" bg-slate-800 rounded-lg w-60 h-44 flex justify-center items-center m-5 lg:m-0">
           <div>
             <div className="text-3xl text-white bg-primary-focus w-fit p-1 rounded-lg mb-2">
               <MdOutlineEngineering />
