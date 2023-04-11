@@ -4,7 +4,7 @@ import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
-import { addToDb } from "./utilities/fakedb";
+import { addToDb } from "../utilities/fakedb";
 
 const JobDetails = () => {
   const [applyed, setApplyed] = useState(false);

@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Home from "./Home";
+import Home from "./Components/Home";
 import "./index.css";
-import JobDetails from "./JobDetails";
-import Appliedjobs from "./Appliedjobs";
+import JobDetails from "./Components/JobDetails";
+import Appliedjobs from "./Components/Appliedjobs";
 
 const router = createBrowserRouter([
   {
