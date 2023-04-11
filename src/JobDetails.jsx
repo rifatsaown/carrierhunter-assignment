@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { BsPersonWorkspace } from "react-icons/bs";
+import { BsPersonWorkspace ,BsPhone} from "react-icons/bs";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { MdOutlineEmail } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
 
 const JobDetails = () => {
@@ -35,7 +36,7 @@ const JobDetails = () => {
       </div>
 
       <div className=" lg:mt-32 flex justify-evenly flex-wrap">
-        <div className="w-[850px]">
+        <div className="w-[800px] p-4 lg:my-8">
           <p className=" font-light">
             <span className="font-bold">Job Description: </span>
             {job_description}
@@ -49,7 +50,7 @@ const JobDetails = () => {
           <p className="font-bold">Experiences:</p>
           <p className=" font-light">{experiences}</p>
         </div>
-        <div className="w-[425px] h-[460px] p-8 bg-base-300 rounded-xl">
+        <div className="p-8 bg-base-300 rounded-xl my-4">
           <h1 className="text-xl my-4 font-bold">Job Details</h1>
           <hr />
           <p className=" font-thin flex py-2">
@@ -67,16 +68,19 @@ const JobDetails = () => {
               <div>
                 <p className="text-xl my-4 font-bold">Contact Information</p>
                 <hr />
-                <p>{contact_information[0].phone}</p>
-                <p>{contact_information[0].email}</p>
+                <p className=" font-thin flex py-2">
+                  <BsPhone className="text-2xl mr-1" />
+                  <span className="font-bold mr-1">Phone:</span>
+                  {contact_information[0].phone}
+                </p>
+                <p className=" font-thin flex py-2">
+                  <MdOutlineEmail className="text-2xl mr-1" />
+                  <span className="font-bold mr-1">Email:</span>
+                  {contact_information[0].email}
+                </p>
               </div>
             )}
-
-            {/* { 
-                contact_information?.map((info) => {
-                    <p>{info?.email}</p>
-                })
-            } */}
+            <button className="btn btn-wide btn-primary my-4">Apply Now</button>
           </div>
         </div>
       </div>
