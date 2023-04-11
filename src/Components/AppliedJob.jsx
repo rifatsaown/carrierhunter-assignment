@@ -13,16 +13,14 @@ const AppliedJob = ({ job }) => {
     salary,
     id,
   } = job;
-  
+
   const navigate = useNavigate();
   const handleDetails = () => {
-    navigate(`/jobs/${id}`)
-  }
-
+    navigate(`/jobs/${id}`);
+  };
 
   return (
     <div>
-
       <div className=" mt-5">
         <div className="lg:flex justify-between items-center border border-primary-focus rounded-xl p-4 lg:mx-80">
           <div className="lg:flex items-center">
@@ -38,14 +36,23 @@ const AppliedJob = ({ job }) => {
                   <p className="btn btn-outline ml-2">{fulltime_or_parttime}</p>
                 </div>
                 <div className="flex mt-2">
-                  <p className=" flex mr-7"> <GoLocation className="text-xl mr-1 text-[#05a5eb]"/> {location}</p>
-                  <p className="flex"><RiMoneyDollarCircleLine className="text-2xl mr-1 text-[#05a5eb]"/> {salary}</p>
+                  <p className=" flex mr-7">
+                    {" "}
+                    <GoLocation className="text-xl mr-1 text-[#05a5eb]" />{" "}
+                    {location}
+                  </p>
+                  <p className="flex">
+                    <RiMoneyDollarCircleLine className="text-2xl mr-1 text-[#05a5eb]" />{" "}
+                    {salary}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
           <div className="">
-            <button onClick={handleDetails} className="btn btn-primary m-4">View Details</button>
+            <button onClick={handleDetails} className="btn btn-primary m-4">
+              View Details
+            </button>
           </div>
         </div>
       </div>
