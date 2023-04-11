@@ -30,18 +30,12 @@ const Appliedjobs = () => {
     }
     const sortJobs = jobs.filter((job) => job.remote_or_onsite === props);
     setJobs(sortJobs);
-  }
+  };
 
   return (
     <div>
       <div className="hero min-h-[20vh] bg-base-200">
         <h1 className="text-3xl font-bold">Applied Jobs</h1>
-      </div>
-      <div className="text-center">
-        <button onClick={()=>handleSort("Onsite")} className="btn btn-secondary mr-4 mt-4">
-          Onsite
-        </button>
-        <button onClick={()=>handleSort("Remote")} className="btn btn-secondary">Remote</button>
       </div>
       <div>
         {jobs.length === 0 ? (
@@ -54,7 +48,25 @@ const Appliedjobs = () => {
             </Link>
           </div>
         ) : (
-          jobs.map((job, index) => <AppliedJob job={job} key={index} />)
+          <div>
+            <div className="text-center">
+              <button
+                onClick={() => handleSort("Onsite")}
+                className="btn btn-secondary mr-4 mt-4"
+              >
+                Onsite
+              </button>
+              <button
+                onClick={() => handleSort("Remote")}
+                className="btn btn-secondary"
+              >
+                Remote
+              </button>
+            </div>
+            {jobs.map((job, index) => (
+              <AppliedJob job={job} key={index} />
+            ))}
+          </div>
         )}
       </div>
     </div>

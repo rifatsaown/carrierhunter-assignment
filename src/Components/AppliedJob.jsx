@@ -24,7 +24,7 @@ const AppliedJob = ({ job }) => {
     <div>
 
       <div className=" mt-5">
-        <div className="flex justify-between items-center border border-primary-focus rounded-xl p-4 lg:mx-80">
+        <div className="lg:flex justify-between items-center border border-primary-focus rounded-xl p-4 lg:mx-80">
           <div className="lg:flex items-center">
             <div className="m-4 w-40">
               <img className="" src={job.company_logo} alt="Company Logo" />
@@ -45,7 +45,7 @@ const AppliedJob = ({ job }) => {
             </div>
           </div>
           <div className="">
-            <button onClick={handleDetails} className="btn btn-primary">View Details</button>
+            <button onClick={handleDetails} className="btn btn-primary m-4">View Details</button>
           </div>
         </div>
       </div>
