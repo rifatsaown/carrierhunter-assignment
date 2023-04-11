@@ -5,6 +5,7 @@ import App from "./App";
 import Home from "./Home";
 import "./index.css";
 import JobDetails from "./JobDetails";
+import Appliedjobs from "./Appliedjobs";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +14,13 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       {
+        path: "/applied-jobs",
+        element: <Appliedjobs/>,
+        loader : () => fetch("../jobs.json"),
+      },
+      {
         path: "/jobs/:id",
-        loader: ({params}) => {return ({id: params.id})},
+        loader: ({params}) => {return ({jobid: params.id})},
         element: <JobDetails/>,
       },
       {

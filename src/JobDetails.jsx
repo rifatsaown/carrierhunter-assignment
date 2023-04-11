@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { BsPersonWorkspace ,BsPhone} from "react-icons/bs";
+import { BsPersonWorkspace, BsPhone } from "react-icons/bs";
+import { MdOutlineEmail, MdOutlineLocationOn } from "react-icons/md";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
-import { MdOutlineEmail } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
+import { addToDb } from "./utilities/fakedb";
 
 const JobDetails = () => {
-  const { id } = useLoaderData();
+  const [applyed, setApplyed] = useState(false);
+  const { jobid } = useLoaderData();
   const [job, setJob] = useState([]);
   useEffect(() => {
     fetch("../jobs.json")
       .then((res) => res.json())
-      .then((data) => setJob(data[id - 1]));
+      .then((data) => setJob(data[jobid - 1]));
   }, []);
   const {
-    company_logo,
+    id,
     company_name,
     job_title,
-    remote_or_onsite,
-    fulltime_or_parttime,
     location,
     salary,
     job_description,
@@ -26,28 +27,54 @@ const JobDetails = () => {
     experiences,
     contact_information,
   } = job;
-  if (job.length < 0) {
-    return <h1>Loading...</h1>;
-  }
+
+  const handleApply = (job) => {
+    addToDb(job);
+    setApplyed(true);
+    if (applyed) {
+      toast.error("Already Applied", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      toast.success("Applyed Sucessfuly", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
+
   return (
     <>
-      <div className="hero min-h-[40vh] bg-base-200">
+      <div className="hero min-h-[20vh] bg-base-200">
         <h1 className="text-3xl font-bold">{company_name}</h1>
       </div>
 
       <div className=" lg:mt-32 flex justify-evenly flex-wrap">
         <div className="w-[800px] p-4 lg:my-8">
-          <p className=" font-light">
+          <p className="py-3 font-light">
             <span className="font-bold">Job Description: </span>
             {job_description}
           </p>
-          <p className=" font-light">
+          <p className="pb-3 font-light">
             <span className="font-bold">Job Responsibility:</span>
             {job_responsibility}
           </p>
-          <p className="font-bold">Educational Requirements:</p>
-          <p className=" font-light">{educational_requirements}</p>
-          <p className="font-bold">Experiences:</p>
+          <p className="pb-1 font-bold">Educational Requirements:</p>
+          <p className="pb-3 font-light">{educational_requirements}</p>
+          <p className="pb-1 font-bold">Experiences:</p>
           <p className=" font-light">{experiences}</p>
         </div>
         <div className="p-8 bg-base-300 rounded-xl my-4">
@@ -78,9 +105,19 @@ const JobDetails = () => {
                   <span className="font-bold mr-1">Email:</span>
                   {contact_information[0].email}
                 </p>
+                <p className=" font-thin flex py-2">
+                  <MdOutlineLocationOn className="text-2xl mr-1" />
+                  <span className="font-bold mr-1">Address:</span>
+                  {location}
+                </p>
               </div>
             )}
-            <button className="btn btn-wide btn-primary my-4">Apply Now</button>
+            <button
+              onClick={() => handleApply(id)}
+              className="btn btn-wide btn-primary my-4"
+            >
+              Apply Now
+            </button>
           </div>
         </div>
       </div>
