@@ -1,5 +1,5 @@
 import React from "react";
-import profile from "../assets/Images/P3OLGJ1.png";
+import profile from "/profile.svg";
 
 const Hero = () => {
   return (
