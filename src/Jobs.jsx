@@ -1,9 +1,21 @@
-import React, { useContext } from "react";
-import { LevelContext } from "./Home";
+import React, { useEffect, useState } from "react";
 import Job from "./Job";
+import { useNavigate } from "react-router-dom";
 
 const Jobs = () => {
-  const jobs = useContext(LevelContext);
+  const [jobs, setJobs] = useState([]);
+  useEffect(() => {
+    fetch("jobs.json")
+      .then((res) => res.json())
+      .then((data) => setJobs(data.slice(0, 4)));
+  }, []);
+
+  const handleShowAll = () => {
+    fetch("jobs.json")
+      .then((res) => res.json())
+      .then((data) => setJobs(data));
+  }
+
   return (
     <div>
       <div className="text-center mt-32 mb-8" id="jobs">
@@ -14,11 +26,14 @@ const Jobs = () => {
         </p>
       </div>
       <div className="flex justify-center">
-      <div className="grid lg:grid-cols-2 gap-4">
-        {jobs.map((job, index) => (
-          <Job key={index} job={job}></Job>
-        ))}
+        <div className="grid lg:grid-cols-2 gap-4">
+          {jobs.map((job, index) => (
+            <Job key={index} job={job}></Job>
+          ))}
+        </div>
       </div>
+      <div id="jobs" className={`text-center my-3 ${jobs.length>=5?"hidden":""}`}>
+      <button  onClick={handleShowAll} className="btn btn-primary btn-outline">Load More</button>
       </div>
     </div>
   );

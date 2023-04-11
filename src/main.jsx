@@ -4,14 +4,19 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./Home";
 import "./index.css";
+import JobDetails from "./JobDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <Home /> ,
-      loader: async () => fetch("job1.json")},
+      { path: "/", element: <Home /> },
+      {
+        path: "/jobs/:id",
+        loader: ({params}) => {return ({id: params.id})},
+        element: <JobDetails/>,
+      },
       {
         path: "/*",
         element: <div>404</div>,
