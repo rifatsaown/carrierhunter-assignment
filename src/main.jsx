@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Home from "./Components/Home";
-import "./index.css";
-import JobDetails from "./Components/JobDetails";
 import Appliedjobs from "./Components/Appliedjobs";
+import Home from "./Components/Home";
+import JobDetails from "./Components/JobDetails";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -15,13 +15,15 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       {
         path: "/applied-jobs",
-        element: <Appliedjobs/>,
-        loader : () => fetch("../jobs.json"),
+        element: <Appliedjobs />,
+        loader: () => fetch("../jobs.json"),
       },
       {
         path: "/jobs/:id",
-        loader: ({params}) => {return ({jobid: params.id})},
-        element: <JobDetails/>,
+        loader: ({ params }) => {
+          return { jobid: params.id };
+        },
+        element: <JobDetails />,
       },
       {
         path: "/*",
@@ -30,7 +32,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
